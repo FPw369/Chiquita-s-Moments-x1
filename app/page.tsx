@@ -966,9 +966,11 @@ export default function ChiquitasMomentsSinglePage() {
                     >
                       <div className="relative aspect-[16/11] rounded-xl overflow-hidden bg-[#231F20]">
                         <img
-                          src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=85"
+                          src="/images/portrait-father-child.jpg"
                           alt={t.hero.cards.vintage.title}
-                          className="w-full h-full object-cover antique-sepia-filter transition-all duration-700"
+                          className={`w-full h-full object-cover transition-all duration-700 ${
+                            heroFinish === 'antique' ? 'antique-sepia-filter' : ''
+                          }`}
                         />
                         <div className="absolute inset-0 heirloom-vignette pointer-events-none" />
                         <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
