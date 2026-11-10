@@ -713,25 +713,25 @@ export default function ChiquitasMomentsSinglePage() {
     AVAILABLE_DATES.find((d) => d.id === selectedDate) || AVAILABLE_DATES[0];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FBF9F5] text-[#231F20]">
+    <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#FBF9F5] text-[#231F20]">
       {/* =====================================================================
           1. MINIMAL STICKY HEADER
          ===================================================================== */}
-      <header className="sticky top-0 z-40 bg-[#FBF9F5]/95 backdrop-blur-md border-b border-[#EBE5DF] transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <header className="sticky top-0 z-40 w-full bg-[#FBF9F5]/95 backdrop-blur-md border-b border-[#EBE5DF] transition-all">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
           {/* Left: Classic Serif Wordmark */}
           <a
             href="#top"
-            className="group flex items-center gap-3 focus:outline-none"
+            className="group flex items-center gap-2 sm:gap-3 min-w-0 focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#231F20] text-[#C5A059] flex items-center justify-center border border-[#C5A059]/40 shadow-sm group-hover:bg-[#C5A059] group-hover:text-[#231F20] transition-colors">
-              <Camera className="w-5 h-5" />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#231F20] text-[#C5A059] flex items-center justify-center border border-[#C5A059]/40 shadow-sm shrink-0 group-hover:bg-[#C5A059] group-hover:text-[#231F20] transition-colors">
+              <Camera className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div>
-              <span className="block font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#231F20]">
+            <div className="min-w-0">
+              <span className="block font-serif text-base sm:text-2xl font-bold tracking-tight text-[#231F20] truncate">
                 {t.brand}
               </span>
-              <span className="block text-[11px] uppercase tracking-[0.22em] text-[#8C827A] font-medium">
+              <span className="block text-[9px] sm:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.22em] text-[#8C827A] font-medium truncate">
                 {t.brandTagline}
               </span>
             </div>
@@ -764,85 +764,87 @@ export default function ChiquitasMomentsSinglePage() {
           </nav>
 
           {/* Right: English / Español Language Toggle & Pill-Shaped Book Now CTA */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <div
               role="group"
               aria-label="Language switcher"
-              className="inline-flex items-center rounded-full bg-[#F3EFEA] p-1 border border-[#EBE5DF]"
+              className="inline-flex items-center rounded-full bg-[#F3EFEA] p-0.5 sm:p-1 border border-[#EBE5DF]"
             >
               <button
                 type="button"
                 onClick={() => handleToggleLanguage('en')}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
+                className={`px-2 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold transition-all ${
                   lang === 'en'
                     ? 'bg-[#231F20] text-[#FBF9F5] shadow-sm'
                     : 'text-[#3A3432] hover:text-[#231F20]'
                 }`}
               >
-                English
+                <span className="sm:hidden">EN</span>
+                <span className="hidden sm:inline">English</span>
               </button>
               <button
                 type="button"
                 onClick={() => handleToggleLanguage('es')}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
+                className={`px-2 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold transition-all ${
                   lang === 'es'
                     ? 'bg-[#C5A059] text-[#231F20] shadow-sm'
                     : 'text-[#3A3432] hover:text-[#231F20]'
                 }`}
               >
-                Español
+                <span className="sm:hidden">ES</span>
+                <span className="hidden sm:inline">Español</span>
               </button>
             </div>
 
             <button
               type="button"
               onClick={() => scrollToSection('booking')}
-              className="inline-flex items-center gap-2 rounded-full bg-[#231F20] text-[#FBF9F5] hover:bg-[#C5A059] hover:text-[#231F20] px-5 py-2.5 text-xs sm:text-sm font-semibold shadow-sm transition-all duration-200"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-[#231F20] text-[#FBF9F5] hover:bg-[#C5A059] hover:text-[#231F20] px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold whitespace-nowrap shadow-sm transition-all duration-200"
             >
               <span>{t.nav.bookNow}</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 hidden sm:inline-block" />
             </button>
           </div>
         </div>
       </header>
 
-      <main id="top" className="flex-1">
+      <main id="top" className="flex-1 w-full">
         {/* ===================================================================
             2. HERO SECTION (With 3-Card Staggered Photo Showcase)
            =================================================================== */}
-        <section className="relative overflow-hidden editorial-grid-bg pt-10 pb-20 sm:pt-16 sm:pb-28 border-b border-[#EBE5DF]">
+        <section className="relative overflow-hidden editorial-grid-bg pt-8 pb-16 sm:pt-16 sm:pb-28 border-b border-[#EBE5DF]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center">
               {/* Left Column: Warm Editorial Headline & Dual CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="lg:col-span-6 space-y-6"
+                className="lg:col-span-6 space-y-5 sm:space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start"
               >
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F4ECE1] border border-[#C5A059]/40 text-[#A68238] text-xs font-semibold uppercase tracking-wider">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{t.hero.eyebrow}</span>
                 </div>
 
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#231F20] leading-[1.1] tracking-tight">
+                <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-[#231F20] leading-[1.12] tracking-tight">
                   {t.hero.headline}
                 </h1>
 
-                <p className="font-serif text-xl sm:text-2xl text-[#A68238] italic">
+                <p className="font-serif text-lg sm:text-2xl text-[#A68238] italic">
                   {t.hero.subtitle}
                 </p>
 
-                <p className="text-base text-[#3A3432] leading-relaxed max-w-xl">
+                <p className="text-sm sm:text-base text-[#3A3432] leading-relaxed max-w-xl">
                   {t.hero.description}
                 </p>
 
                 {/* Dual CTA Buttons */}
-                <div className="flex flex-wrap items-center gap-4 pt-2">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
                   <button
                     type="button"
                     onClick={() => scrollToSection('special-event')}
-                    className="inline-flex items-center gap-2.5 rounded-full bg-[#C5A059] hover:bg-[#b58e47] text-[#231F20] font-bold px-7 py-4 text-sm sm:text-base shadow-heirloom transition-all"
+                    className="w-full sm:w-auto justify-center inline-flex items-center gap-2.5 rounded-full bg-[#C5A059] hover:bg-[#b58e47] text-[#231F20] font-bold px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base shadow-heirloom transition-all"
                   >
                     <Sparkles className="w-4 h-4" />
                     <span>{t.hero.primaryCta}</span>
@@ -852,7 +854,7 @@ export default function ChiquitasMomentsSinglePage() {
                   <button
                     type="button"
                     onClick={() => scrollToSection('backdrops')}
-                    className="inline-flex items-center gap-2.5 rounded-full bg-white hover:bg-[#F3EFEA] text-[#231F20] font-semibold px-6 py-4 text-sm sm:text-base border border-[#EBE5DF] shadow-sm transition-all"
+                    className="w-full sm:w-auto justify-center inline-flex items-center gap-2.5 rounded-full bg-white hover:bg-[#F3EFEA] text-[#231F20] font-semibold px-6 py-3.5 sm:py-4 text-sm sm:text-base border border-[#EBE5DF] shadow-sm transition-all"
                   >
                     <ImageIcon className="w-4 h-4 text-[#C5A059]" />
                     <span>{t.hero.secondaryCta}</span>
@@ -860,12 +862,12 @@ export default function ChiquitasMomentsSinglePage() {
                 </div>
 
                 {/* Quick Coordinator Strip */}
-                <div className="pt-4 border-t border-[#EBE5DF] flex flex-wrap items-center gap-6 text-xs sm:text-sm text-[#3A3432]">
+                <div className="pt-4 border-t border-[#EBE5DF] w-full flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-[#3A3432]">
                   <a
                     href="tel:7083597234"
                     className="inline-flex items-center gap-2 font-medium hover:text-[#C5A059] transition-colors"
                   >
-                    <span className="w-7 h-7 rounded-full bg-[#F4ECE1] text-[#A68238] flex items-center justify-center">
+                    <span className="w-7 h-7 rounded-full bg-[#F4ECE1] text-[#A68238] flex items-center justify-center shrink-0">
                       <Phone className="w-3.5 h-3.5" />
                     </span>
                     <span>
@@ -876,7 +878,7 @@ export default function ChiquitasMomentsSinglePage() {
                     href="tel:3233713512"
                     className="inline-flex items-center gap-2 font-medium hover:text-[#C5A059] transition-colors"
                   >
-                    <span className="w-7 h-7 rounded-full bg-[#F4ECE1] text-[#A68238] flex items-center justify-center">
+                    <span className="w-7 h-7 rounded-full bg-[#F4ECE1] text-[#A68238] flex items-center justify-center shrink-0">
                       <Phone className="w-3.5 h-3.5" />
                     </span>
                     <span>
@@ -891,12 +893,12 @@ export default function ChiquitasMomentsSinglePage() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="lg:col-span-6 space-y-5"
+                className="lg:col-span-6 space-y-5 w-full"
               >
                 {/* Interactive Finish Switcher above the 3-card showcase */}
-                <div className="flex items-center justify-between bg-white/90 backdrop-blur-sm px-4 py-2.5 rounded-2xl border border-[#EBE5DF] shadow-sm">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#8C827A] flex items-center gap-1.5">
-                    <SlidersHorizontal className="w-3.5 h-3.5 text-[#C5A059]" />
+                <div className="flex flex-wrap items-center justify-between gap-2 bg-white/90 backdrop-blur-sm px-3.5 sm:px-4 py-2.5 rounded-2xl border border-[#EBE5DF] shadow-sm">
+                  <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#8C827A] flex items-center gap-1.5">
+                    <SlidersHorizontal className="w-3.5 h-3.5 text-[#C5A059] shrink-0" />
                     {t.hero.finishPreviewLabel}
                   </span>
                   <div className="inline-flex rounded-full bg-[#F3EFEA] p-1 border border-[#EBE5DF]">
@@ -926,13 +928,13 @@ export default function ChiquitasMomentsSinglePage() {
                 </div>
 
                 {/* 3-Card Staggered Editorial Grid */}
-                <div className="grid grid-cols-12 gap-4 items-center">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
                   {/* Card 1: Family Color (Left Tall Staggered Card) */}
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="col-span-6 sm:col-span-5 bg-white p-3 rounded-2xl border border-[#EBE5DF] shadow-editorial"
+                    className="sm:col-span-5 bg-white p-3 rounded-2xl border border-[#EBE5DF] shadow-editorial"
                   >
-                    <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#231F20]">
+                    <div className="relative aspect-[4/4] sm:aspect-[3/4] rounded-xl overflow-hidden bg-[#231F20]">
                       <img
                         src="/images/portrait-family-generations.jpg"
                         alt={t.hero.cards.family.title}
@@ -956,7 +958,7 @@ export default function ChiquitasMomentsSinglePage() {
                   </motion.div>
 
                   {/* Right Column of Staggered Stack: Card 2 (Vintage Antique) & Card 3 (Milestone Child) */}
-                  <div className="col-span-6 sm:col-span-7 space-y-4">
+                  <div className="sm:col-span-7 space-y-4">
                     {/* Card 2: Vintage Antique (Featured Centerpiece Card) */}
                     <motion.div
                       whileHover={{ y: -4 }}

@@ -12,6 +12,7 @@
     scroll-behavior: smooth;
     background-color: #FBF9F5;
     color: #231F20;
+    overflow-x: hidden;
   }
 
   body {
@@ -19,6 +20,8 @@
     color: #231F20;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
   }
 }
 
