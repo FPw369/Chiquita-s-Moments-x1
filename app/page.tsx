@@ -368,8 +368,8 @@ const COPY = {
     },
     hero: {
       eyebrow: 'Fine Family & Heirloom Portraiture',
-      headline: 'Timeless Family & Vintage Portraits',
-      subtitle: 'Heirloom photography crafted to last generations.',
+      headline: "Chiquita's Moments",
+      subtitle: 'Timeless Family & Vintage Portraits',
       description:
         'From multi-generational family portraits in luminous color to authentic 1920s sepia character sittings with our studio wardrobe and antique props.',
       primaryCta: 'View Event Special',
@@ -494,8 +494,8 @@ const COPY = {
     },
     hero: {
       eyebrow: 'Retratos Familiares y de Época de Alta Calidad',
-      headline: 'Retratos Familiares y Vintage Atemporales',
-      subtitle: 'Fotografía de reliquia creada para perdurar por generaciones.',
+      headline: "Chiquita's Moments",
+      subtitle: 'Retratos Familiares y Vintage Atemporales',
       description:
         'Desde retratos familiares multigeneracionales en color vibrante hasta auténticas sesiones antiguas estilo años 1920 con vestuario y utilería de nuestro estudio.',
       primaryCta: 'Ver Oferta Especial',
