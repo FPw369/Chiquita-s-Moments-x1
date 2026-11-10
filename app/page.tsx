@@ -761,14 +761,6 @@ export default function ChiquitasMomentsSinglePage() {
             >
               {t.nav.booking}
             </button>
-            <button
-              type="button"
-              onClick={() => setProofingOpen(true)}
-              className="hover:text-[#C5A059] transition-colors flex items-center gap-1.5"
-            >
-              <Lock className="w-3.5 h-3.5 text-[#C5A059]" />
-              <span>{t.nav.proofs}</span>
-            </button>
           </nav>
 
           {/* Right: English / Español Language Toggle & Pill-Shaped Book Now CTA */}
@@ -1897,23 +1889,7 @@ export default function ChiquitasMomentsSinglePage() {
       </main>
 
       {/* =====================================================================
-          6. FLOATING QUICK-ACCESS "CLIENT PROOFING" TRIGGER
-         ===================================================================== */}
-      <div className="fixed bottom-5 right-5 z-30">
-        <button
-          type="button"
-          onClick={() => setProofingOpen(true)}
-          className="group flex items-center gap-2.5 rounded-full bg-[#231F20]/95 hover:bg-[#231F20] text-[#FBF9F5] px-4 py-3 text-xs sm:text-sm font-medium border border-[#C5A059]/60 shadow-editorial-lg backdrop-blur-md transition-all hover:scale-[1.02]"
-        >
-          <span className="w-7 h-7 rounded-full bg-[#C5A059] text-[#231F20] flex items-center justify-center shrink-0">
-            <Lock className="w-3.5 h-3.5" />
-          </span>
-          <span className="pr-1">{t.proofing.floatingTrigger}</span>
-        </button>
-      </div>
-
-      {/* =====================================================================
-          7. CONCISE FOOTER
+          6. CONCISE FOOTER (Client Proofing UI hidden on frontend; preserved in code for future use)
          ===================================================================== */}
       <footer className="bg-[#231F20] text-[#FBF9F5] border-t-2 border-[#C5A059]/50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-8">
@@ -1971,13 +1947,6 @@ export default function ChiquitasMomentsSinglePage() {
             <div>
               © {new Date().getFullYear()} {t.footer.rights}
             </div>
-            <button
-              type="button"
-              onClick={() => setProofingOpen(true)}
-              className="text-[#C5A059] hover:underline font-medium"
-            >
-              {t.proofing.floatingTrigger} (PIN: MOMENTS)
-            </button>
           </div>
         </div>
       </footer>
